@@ -1,0 +1,61 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "keysense-nlp"
+version = "1.0.0"
+description = "Production-grade Keyword & Keyphrase Extractor implementing Statistical, Graph-based, and Semantic NLP algorithms."
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [
+    { name = "KeySense NLP Team" }
+]
+keywords = [
+    "nlp", "keyword-extraction", "keyphrase-extraction", "textrank", "rake",
+    "yake", "tfidf", "keybert", "information-retrieval", "machine-learning"
+]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Text Processing :: Linguistic"
+]
+dependencies = [
+    "scikit-learn>=1.3.0",
+    "numpy>=1.24.0",
+    "scipy>=1.10.0",
+    "networkx>=3.0",
+    "nltk>=3.8.0",
+    "pandas>=2.0.0",
+    "streamlit>=1.30.0"
+]
+
+[project.optional-dependencies]
+deeplearning = [
+    "sentence-transformers>=2.2.0",
+    "torch>=2.0.0"
+]
+api = [
+    "fastapi>=0.100.0",
+    "uvicorn>=0.22.0"
+]
+dev = [
+    "pytest>=7.0",
+    "httpx>=0.24.0"
+]
+
+[project.scripts]
+keyword-extractor = "keyword_extractor.cli:main"
+keysense = "keyword_extractor.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["keyword_extractor*"]
